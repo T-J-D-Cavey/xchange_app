@@ -1,13 +1,14 @@
-import Form_Selects from "./Form_Selects";
-import Form_Button from './Form_Button';
+import { Form_Selects } from "./Form_Selects";
+import { Form_Button } from './Form_Button';
 
-function Form_Container() {
+export function Form_Container() {
     return (
         <div>
-            <Form_Selects />
-            <Form_Button />
+            <form>
+                <label htmlFor='to_convert'>Currency to convert:</label>
+                <Form_Selects />
+                <Form_Button />
+            </form>
         </div>
     )
 }
-
-export default Form_Container;

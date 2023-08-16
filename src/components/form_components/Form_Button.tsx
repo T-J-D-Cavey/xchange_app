@@ -1,11 +1,9 @@
 import Button from 'react-bootstrap/Button';
 
-function Form_Button() {
+export function Form_Button() {
   return (
     <>
-      <Button variant="light">Submit</Button>{'What does this do?'}
+      <Button variant="light">Submit</Button>
     </>
   );
 }
-
-export default Form_Button;

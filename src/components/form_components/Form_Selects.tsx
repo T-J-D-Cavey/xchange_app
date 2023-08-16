@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 
-function Form_Selects() {
+export function Form_Selects() {
   return (
     <>
       <Form.Group controlId='currency_to_convert'>
@@ -20,7 +20,7 @@ function Form_Selects() {
       </Form.Group>
         <br />
       <Form.Group controlId='target_currency'>
-        <Form.Label>Currency to convert:</Form.Label>
+        <Form.Label>Target currency:</Form.Label>
         <Form.Select id='target_currency' size="lg">
           <option value='USD'>US dollar (USD)</option>
           <option value='EUR'>Euro (EUR)</option>
@@ -37,5 +37,3 @@ function Form_Selects() {
     </>
   );
 }
-
-export default Form_Selects;
