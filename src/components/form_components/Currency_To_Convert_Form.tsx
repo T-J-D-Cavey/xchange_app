@@ -3,12 +3,9 @@ import Form from 'react-bootstrap/Form';
 interface formProps {
     convert_amount: number;
     set_convert_amount: (amount: number) => void;
-    // target_amount: number;
-    // set_target_amount: (amount: number) => void;
     convert_currency: string;
     set_convert_currency: (amount: string) => void;
-    // target_currency: string;
-    // set_target_currency: (amount: string) => void;
+    fetchConversion: () => void;
 }
 
 export const Currency_To_Convert_Form: React.FC<formProps> = (formProps) => {
@@ -17,13 +14,15 @@ export const Currency_To_Convert_Form: React.FC<formProps> = (formProps) => {
     function changeAmountHandler(e: React.ChangeEvent<HTMLInputElement>) {
       e.preventDefault();
       const input = e.target.value;
-      formProps.set_convert_amount(+input)
+      formProps.set_convert_amount(+input);
+      formProps.fetchConversion();
     }
 
     function changeCurrencyHandler(e: React.ChangeEvent<HTMLSelectElement>) {
       e.preventDefault();
       const input = e.target.value;
-      formProps.set_convert_currency(input)
+      formProps.set_convert_currency(input);
+      formProps.fetchConversion();
     }
 
     return (

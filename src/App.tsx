@@ -1,7 +1,7 @@
 import { Currency_Conversion_Container } from './components/Currency_Conversion_Container';
 // this will eventually be imported and rendered by another currency_container component that includes all the text input logic:
 
-function App() {
+const App = () => {
 
   return (
     <>

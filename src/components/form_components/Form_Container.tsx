@@ -10,6 +10,7 @@ interface formProps {
     set_convert_currency: (amount: string) => void;
     target_currency: string;
     set_target_currency: (amount: string) => void;
+    fetchConversion: () => void;
 }
 export const Form_Container: React.FC<formProps> = (formProps) => {
     return (
@@ -19,12 +20,14 @@ export const Form_Container: React.FC<formProps> = (formProps) => {
                 set_convert_amount={formProps.set_convert_amount}
                 convert_currency={formProps.convert_currency}
                 set_convert_currency={formProps.set_convert_currency}
+                fetchConversion={formProps.fetchConversion}
             />
             <Target_Currency_Form
                 target_amount={formProps.target_amount}
                 set_target_amount={formProps.set_target_amount}
                 target_currency={formProps.target_currency}
                 set_target_currency={formProps.set_target_currency}
+                fetchConversion={formProps.fetchConversion}
             />
         </form>
     )
