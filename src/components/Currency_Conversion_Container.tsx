@@ -21,11 +21,14 @@ export function Currency_Conversion_Container() {
                 target_amount={target_amount}
                 set_target_amount={set_target_amount}
                 convert_currency={convert_currency}
+                set_convert_currency={set_convert_currency}
+                target_currency={target_currency}
+                set_target_currency={set_target_currency}
             />
             {/*  will ditch button if live async functionality works */}
             <Form_Button />
             {/* below will be set up to change dynamically based on the exchange rate figure and currency */}
-            <p>1 {current_currency} = 0.2323 {target_currency}</p>
+            <p>1 {convert_currency} = 0.2323 {target_currency}</p>
         </div>
     )
 }
