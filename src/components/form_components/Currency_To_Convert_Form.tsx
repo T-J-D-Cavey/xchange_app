@@ -6,10 +6,9 @@ export function Currency_To_Convert_Form() {
         <Form.Group controlId='currency_to_convert'>
             <Form.Label>Currency to convert:</Form.Label>
             <div className='flex'>
-                <input type='number'/>
+                <input type='number' value={4}/>
                 <Form.Select id='currency_to_convert' size="lg">
                   <option value='USD'>US dollar (USD)</option>
-                  <option value='EUR'>Euro (EUR)</option>
                   <option value='JPY'>Japanese yen (JPY)</option>
                   <option value='GBP'>Pound sterling (GBP)</option>
                   <option value='AUD'>Australian dollar (AUD)</option>
@@ -18,6 +17,7 @@ export function Currency_To_Convert_Form() {
                   <option value='CNH'>Chinese renminbi (CNH)</option>
                   <option value='HKD'>Hong Kong dollar (HKD)</option>
                   <option value='NZD'>New Zealand dollar (NZD)</option>
+                  <option value='EUR'>Euro (EUR)</option>
                 </Form.Select>
             </div>
         </Form.Group>

@@ -1,5 +1,6 @@
 
-
+/* we actually want to set up a grid for the form so the image takes up 1/5 of the space
+and the input and select take up 2/5 each */
 .flex {
     display: flex;
     
