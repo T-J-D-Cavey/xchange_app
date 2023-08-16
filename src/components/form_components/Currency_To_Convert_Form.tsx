@@ -13,13 +13,26 @@ interface formProps {
 
 export const Currency_To_Convert_Form: React.FC<formProps> = (formProps) => {
     const convert_amount = formProps.convert_amount;
+
+    function changeAmountHandler(e: React.ChangeEvent<HTMLInputElement>) {
+      e.preventDefault();
+      const input = e.target.value;
+      formProps.set_convert_amount(+input)
+    }
+
+    function changeCurrencyHandler(e: React.ChangeEvent<HTMLSelectElement>) {
+      e.preventDefault();
+      const input = e.target.value;
+      formProps.set_convert_currency(input)
+    }
+
     return (
       <div>
         <Form.Group controlId='currency_to_convert'>
             <Form.Label>Currency to convert:</Form.Label>
             <div className='flex'>
-                <input type='number' value={convert_amount}/>
-                <Form.Select id='currency_to_convert' size="lg">
+                <input type='number' value={convert_amount} onChange={changeAmountHandler}/>
+                <Form.Select id='currency_to_convert' size="lg" onChange={changeCurrencyHandler}>
                   <option value='USD'>US dollar (USD)</option>
                   <option value='JPY'>Japanese yen (JPY)</option>
                   <option value='GBP'>Pound sterling (GBP)</option>
