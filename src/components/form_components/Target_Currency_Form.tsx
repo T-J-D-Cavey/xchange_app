@@ -3,10 +3,10 @@ import { Image_Store } from '../../assets/Image_Store';
 
 interface formProps {
       target_amount: number;
-      set_target_amount: (amount: number) => void;
+      set_user_input_target_amount: (amount: number) => void;
       target_currency: string;
       set_target_currency: (amount: string) => void;
-      fetchConversion: () => void;
+      calculate_amount: () => void;
   }
 
 export const Target_Currency_Form: React.FC<formProps> = (formProps) => {
@@ -17,15 +17,18 @@ export const Target_Currency_Form: React.FC<formProps> = (formProps) => {
     function changeAmountHandler(e: React.ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const input = e.target.value;
-        formProps.set_target_amount(+input);
-        formProps.fetchConversion()
+        if(+input < 0) {
+            alert('Please enter a positive number to be converted.');
+        } else {
+            formProps.set_user_input_target_amount(+input);
+            formProps.calculate_amount();
+        }
     }
 
     function changeCurrencyHandler(e: React.ChangeEvent<HTMLSelectElement>) {
         e.preventDefault();
         const input = e.target.value;
         formProps.set_target_currency(input);
-        formProps.fetchConversion();
       }
 
     return (
