@@ -10,13 +10,17 @@ export const Currency_Conversion_Container = () => {
     const [user_input_target_amount, set_user_input_target_amount] = useState<false | number>(false)
     const [convert_currency, set_convert_currency] = useState<string>('USD');
     const [target_currency, set_target_currency] = useState<string>('EUR');
-    const [conversion_rate, set_conversion_rate] = useState<number>(1);
+    const [conversion_rate, set_conversion_rate] = useState<number>(2);
     // logic to make a fetch with the API key:
     useEffect(() => {
       fetch_conversion();
       calculate_amount();
       // calls the function that either does multiplication or division based on user_Input state
-    }, [convert_currency, target_currency])
+    }, [convert_currency, user_input_target_amount])
+
+    useEffect(() => {
+      calculate_amount();
+    }, [convert_amount, target_amount])
     
     async function fetch_conversion() {
         try {
@@ -53,7 +57,7 @@ export const Currency_Conversion_Container = () => {
             />
             {/*  will ditch button if live async functionality works */}
             <Form_Button />
-            <p>{convert_amount === 0 ? 0 : 1} {convert_currency} = {target_amount} {target_currency}</p>
+            <p>1 {convert_currency} = {1 * conversion_rate} {target_currency}</p>
         </div>
     )
 }

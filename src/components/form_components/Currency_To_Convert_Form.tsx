@@ -18,9 +18,8 @@ export const Currency_To_Convert_Form: React.FC<formProps> = (formProps) => {
       if(+input < 0) {
         alert('Please enter a positive number to be converted.')
       } else {
-        formProps.set_convert_amount(+input);
         formProps.set_user_input_target_amount(false);
-        formProps.calculate_amount();
+        formProps.set_convert_amount(+input);        // formProps.calculate_amount();
       }
     }
 
