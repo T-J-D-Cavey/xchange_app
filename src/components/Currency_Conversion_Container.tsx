@@ -10,30 +10,34 @@ export const Currency_Conversion_Container = () => {
     const [user_input_target_amount, set_user_input_target_amount] = useState<false | number>(false)
     const [convert_currency, set_convert_currency] = useState<string>('USD');
     const [target_currency, set_target_currency] = useState<string>('EUR');
-    const [conversion_rate, set_conversion_rate] = useState<number>(2);
+    const [conversion_rate, set_conversion_rate] = useState<number>(1);
+
     // logic to make a fetch with the API key:
     useEffect(() => {
       fetch_conversion();
-      calculate_amount();
-      // calls the function that either does multiplication or division based on user_Input state
-    }, [convert_currency, user_input_target_amount])
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [convert_currency, target_currency])
 
     useEffect(() => {
-      calculate_amount();
+      setTimeout(calculate_amount, 1000);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [convert_amount, target_amount])
     
     async function fetch_conversion() {
         try {
-          // const response = await fetch(`${API_BASE_URL}apikey=${API_KEY}&base_currency=${convert_currency}&currencies=${target_currency}`);
-          // const data = await response.json();
-          // console.log(data);
-          // here is logic to set the conversion_rate state based on the fetch response data.
+          const response = await fetch(`${API_BASE_URL}apikey=${API_KEY}&base_currency=${convert_currency}&currencies=${target_currency}`);
+          const data = await response.json();
+          console.log(data);
+          const rate: number = data.data[target_currency];
+          console.log(rate)
+          set_conversion_rate(rate);
         } catch (error) {
           alert(`Error getting currency conversion data: ${error}`);
         }
     }
 
     function calculate_amount() {
+      console.log('convert_amount =', convert_amount, 'conversion_rate =', conversion_rate)
       if(user_input_target_amount) {
         set_convert_amount(user_input_target_amount / conversion_rate);
         set_target_amount(user_input_target_amount);
