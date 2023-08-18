@@ -1,4 +1,6 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
+
 
 export interface store_state_interface {
     currencies: {
@@ -18,23 +20,24 @@ export const get_conversions = createAsyncThunk(
         const response = await fetch(url);
         const data = await response.json();
         // need a way to access the specific currency string:
-        console.log(data);
-        const rate = data.data.currency;
+        const firstKey = Object.keys(data.data)[0];
+        const rate = data.data[firstKey];
+        console.log(rate);
         return rate
     }
-)
-
-const currencies_slice = createSlice({
-    name: 'currencies',
-    initialState: {
-        base_amount: 1,
-        target_amount: 1,
-        // user_target_amount???
-        base_currency: 'USD',
-        target_currency: 'EUR',
-        conversion_rate: 1,
-        status: 'New page load'
-    },
+    )
+    
+    const currencies_slice = createSlice({
+        name: 'currencies',
+        initialState: {
+            base_amount: 1,
+            target_amount: 1,
+            // user_target_amount???
+            base_currency: 'USD',
+            target_currency: 'EUR',
+            conversion_rate: 1,
+            status: 'New page load'
+        },
     reducers: {
         change_base_amount: (state, action) => {
             state.base_amount = action.payload;
@@ -51,16 +54,16 @@ const currencies_slice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(get_conversions.pending, (state) => {
-                state.status = 'Loading...';
-            })
-            .addCase(get_conversions.fulfilled, (state, action) => {
-                state.conversion_rate = action.payload;
-                state.status = 'Success';
-            })
-            .addCase(get_conversions.rejected, (state, action) => {
-                state.status = `Failed to load. ${action.payload}.`;
-            })
+        .addCase(get_conversions.pending, (state) => {
+            state.status = 'Loading...';
+        })
+        .addCase(get_conversions.fulfilled, (state, action) => {
+            state.conversion_rate = action.payload;
+            state.status = 'Success';
+        })
+        .addCase(get_conversions.rejected, (state, action) => {
+            state.status = `Failed to load. ${action.payload}.`;
+        })
     }
 })
 
@@ -94,11 +97,10 @@ export const {change_base_amount, change_target_amount, change_base_currency, ch
 export const currencies_reducer = currencies_slice.reducer;
 
 
-
 // async function fetch_conversion() {
-//     try {
-//       const response = await fetch(`${API_BASE_URL}apikey=${API_KEY}&base_currency=${convert_currency}&currencies=${target_currency}`);
-//       const data = await response.json();
+    //     try {
+        //       const response = await fetch(`${API_BASE_URL}apikey=${API_KEY}&base_currency=${convert_currency}&currencies=${target_currency}`);
+        //       const data = await response.json();
 //       console.log(data);
 //       const rate: number = data.data[target_currency];
 //       console.log(rate)
