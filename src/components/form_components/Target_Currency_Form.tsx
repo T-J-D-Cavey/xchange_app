@@ -7,7 +7,7 @@ export const Target_Currency_Form = () => {
     const dispatch = useDispatch();
     const target_amount = useSelector(target_amount_selector);
     const target_currency = useSelector(target_currency_selector); 
-    function changeAmountHandler(e: React.ChangeEvent<HTMLInputElement>) {
+    function change_amount_handler(e: React.ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const input = e.target.value;
         if(+input < 0) {
@@ -17,7 +17,7 @@ export const Target_Currency_Form = () => {
         }
     }
 
-    function changeCurrencyHandler(e: React.ChangeEvent<HTMLSelectElement>) {
+    function change_currency_handler(e: React.ChangeEvent<HTMLSelectElement>) {
         e.preventDefault();
         const input = e.target.value;
         dispatch(change_target_currency(input))
@@ -29,8 +29,8 @@ export const Target_Currency_Form = () => {
                 <Form.Label>Target currency:</Form.Label>
                 <div className='flex'>
                     <img src={Image_Store[target_currency]}></img>
-                    <input type='number' value={target_amount} onChange={changeAmountHandler}/>
-                    <Form.Select id='target_currency' size="lg" onChange={changeCurrencyHandler}>
+                    <input type='number' value={target_amount} onChange={change_amount_handler}/>
+                    <Form.Select id='target_currency' size="lg" onChange={change_currency_handler}>
                       <option value='EUR'>Euro (EUR)</option>
                       <option value='JPY'>Japanese yen (JPY)</option>
                       <option value='GBP'>Pound sterling (GBP)</option>

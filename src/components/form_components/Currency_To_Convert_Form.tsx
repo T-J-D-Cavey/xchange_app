@@ -1,19 +1,28 @@
 import Form from 'react-bootstrap/Form';
+import { useSelector, useDispatch } from 'react-redux';
+import { base_amount_selector, change_base_amount, change_base_currency, base_currency_selector } from '../redux/currencies_slice';
+import { Image_Store } from '../../assets/Image_Store';
 
 export const Currency_To_Convert_Form = () => {
 
-    function changeAmountHandler(e: React.ChangeEvent<HTMLInputElement>) {
+    const dispatch = useDispatch();
+    const base_amount = useSelector(base_amount_selector);
+    const base_currency = useSelector(base_currency_selector);
+
+    function change_amount_handler(e: React.ChangeEvent<HTMLInputElement>) {
       e.preventDefault();
       const input = e.target.value;
       if(+input < 0) {
         alert('Please enter a positive number to be converted.')
       } else {
+        dispatch(change_base_amount(+input));
       }
     }
 
-    function changeCurrencyHandler(e: React.ChangeEvent<HTMLSelectElement>) {
+    function change_currency_handler(e: React.ChangeEvent<HTMLSelectElement>) {
       e.preventDefault();
       const input = e.target.value;
+      dispatch(change_base_currency(input))
     }
 
     return (
@@ -21,8 +30,9 @@ export const Currency_To_Convert_Form = () => {
         <Form.Group controlId='currency_to_convert'>
             <Form.Label>Currency to convert:</Form.Label>
             <div className='flex'>
-                <input type='number' value={convert_amount} onChange={changeAmountHandler}/>
-                <Form.Select id='currency_to_convert' size="lg" onChange={changeCurrencyHandler}>
+                <img src={Image_Store[base_currency]}></img>
+                <input type='number' value={base_amount} onChange={change_amount_handler}/>
+                <Form.Select id='currency_to_convert' size="lg" onChange={change_currency_handler}>
                   <option value='USD'>US dollar (USD)</option>
                   <option value='JPY'>Japanese yen (JPY)</option>
                   <option value='GBP'>Pound sterling (GBP)</option>
