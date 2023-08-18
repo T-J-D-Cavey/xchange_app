@@ -13,13 +13,15 @@ export const Target_Currency_Form = () => {
     const dispatch = useDispatch();
     const target_amount = useSelector(target_amount_selector);
     const target_currency = useSelector(target_currency_selector); 
+    
     function change_amount_handler(e: React.ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const input = e.target.value;
         if(+input < 0) {
             alert('Please enter a positive number to be converted.');
         } else {
-            dispatch(change_target_amount(+input))
+            dispatch(change_target_amount(+input));
+            dispatch(change_user_target_amount_boolean(true));
         }
     }
 
@@ -27,7 +29,6 @@ export const Target_Currency_Form = () => {
         e.preventDefault();
         const input = e.target.value;
         dispatch(change_target_currency(input));
-        dispatch(change_user_target_amount_boolean(true));
       }
 
     return (

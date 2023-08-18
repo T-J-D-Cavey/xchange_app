@@ -21,7 +21,9 @@ export const Currency_To_Convert_Form = () => {
       if(+input < 0) {
         alert('Please enter a positive number to be converted.')
       } else {
+        console.log('this does fire');
         dispatch(change_base_amount(+input));
+        dispatch(change_user_target_amount_boolean(false));
       }
     }
 
@@ -29,7 +31,6 @@ export const Currency_To_Convert_Form = () => {
       e.preventDefault();
       const input = e.target.value;
       dispatch(change_base_currency(input));
-      dispatch(change_user_target_amount_boolean(false));
     }
 
     return (
