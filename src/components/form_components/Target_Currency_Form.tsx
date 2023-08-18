@@ -1,34 +1,26 @@
 import Form from 'react-bootstrap/Form';
+import { useSelector, useDispatch } from 'react-redux';
+import { target_amount_selector, change_target_amount, change_target_currency, target_currency_selector } from '../redux/currencies_slice';
 import { Image_Store } from '../../assets/Image_Store';
 
-interface formProps {
-      target_amount: number;
-      set_user_input_target_amount: (amount: number) => void;
-      target_currency: string;
-      set_target_currency: (amount: string) => void;
-      calculate_amount: () => void;
-  }
-
-export const Target_Currency_Form: React.FC<formProps> = (formProps) => {
-
-    const target_amount = formProps.target_amount;
-    const target_currency = formProps.target_currency;
-
+export const Target_Currency_Form = () => {
+    const dispatch = useDispatch();
+    const target_amount = useSelector(target_amount_selector);
+    const target_currency = useSelector(target_currency_selector); 
     function changeAmountHandler(e: React.ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const input = e.target.value;
         if(+input < 0) {
             alert('Please enter a positive number to be converted.');
         } else {
-            formProps.set_user_input_target_amount(+input);
-            // formProps.calculate_amount();
+            dispatch(change_target_amount(+input))
         }
     }
 
     function changeCurrencyHandler(e: React.ChangeEvent<HTMLSelectElement>) {
         e.preventDefault();
         const input = e.target.value;
-        formProps.set_target_currency(input);
+        dispatch(change_target_currency(input))
       }
 
     return (

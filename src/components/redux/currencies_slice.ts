@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
-interface store_state_interface {
+export interface store_state_interface {
     currencies: {
-        base_amount: '' | number;
-        target_amount: '' | number;
+        base_amount: number;
+        target_amount: number;
         // user_target_amount???
         base_currency: string;
         target_currency: string;
-        conversion_rate: number,
+        conversion_rate: number;
         status: string;
     }
 }
@@ -26,13 +26,13 @@ export const get_conversions = createAsyncThunk(
 const currencies_slice = createSlice({
     name: 'currencies',
     initialState: {
-        base_amount: '',
-        target_amount: '',
+        base_amount: 1,
+        target_amount: 1,
         // user_target_amount???
         base_currency: 'USD',
         target_currency: 'EUR',
         conversion_rate: 1,
-        status: 'null'
+        status: 'New page load'
     },
     reducers: {
         change_base_amount: (state, action) => {
@@ -91,3 +91,28 @@ export const status_selector = (state: store_state_interface) => {
 export const {change_base_amount, change_target_amount, change_base_currency, change_target_currency, } = currencies_slice.actions
 
 export const currencies_reducer = currencies_slice.reducer;
+
+
+
+// async function fetch_conversion() {
+//     try {
+//       const response = await fetch(`${API_BASE_URL}apikey=${API_KEY}&base_currency=${convert_currency}&currencies=${target_currency}`);
+//       const data = await response.json();
+//       console.log(data);
+//       const rate: number = data.data[target_currency];
+//       console.log(rate)
+//       set_conversion_rate(rate);
+//     } catch (error) {
+//       alert(`Error getting currency conversion data: ${error}`);
+//     }
+// }
+
+// function calculate_amount() {
+//   console.log('convert_amount =', convert_amount, 'conversion_rate =', conversion_rate)
+//   if(user_input_target_amount) {
+//     set_convert_amount(user_input_target_amount / conversion_rate);
+//     set_target_amount(user_input_target_amount);
+//   } else {
+//     set_target_amount(convert_amount * conversion_rate);
+//   }
+// } 
