@@ -1,6 +1,12 @@
 import Form from 'react-bootstrap/Form';
 import { useSelector, useDispatch } from 'react-redux';
-import { target_amount_selector, change_target_amount, change_target_currency, target_currency_selector } from '../redux/currencies_slice';
+import { 
+    target_amount_selector, 
+    change_target_amount, 
+    change_user_target_amount_boolean,
+    change_target_currency, 
+    target_currency_selector, 
+} from '../redux/currencies_slice';
 import { Image_Store } from '../../assets/Image_Store';
 
 export const Target_Currency_Form = () => {
@@ -20,7 +26,8 @@ export const Target_Currency_Form = () => {
     function change_currency_handler(e: React.ChangeEvent<HTMLSelectElement>) {
         e.preventDefault();
         const input = e.target.value;
-        dispatch(change_target_currency(input))
+        dispatch(change_target_currency(input));
+        dispatch(change_user_target_amount_boolean(true));
       }
 
     return (
