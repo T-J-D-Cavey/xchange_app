@@ -8,7 +8,7 @@ import {
     change_user_target_amount_boolean,
     change_target_currency, 
     target_currency_selector, 
-} from '../redux/currencies_slice';
+} from '../../redux/currencies_slice';
 import { image_assets } from '../../assets/image_assets';
 
 export const Target_Form: React.FC = () => {
@@ -26,7 +26,10 @@ export const Target_Form: React.FC = () => {
           }
     } else if (user_target_amount_boolean === false) {
         formated_target_amount = target_amount.toFixed(2);
+      } else {
+        console.log('bug found');
       }
+      
     const target_currency = useSelector(target_currency_selector); 
     
     function change_amount_handler(e: React.ChangeEvent<HTMLInputElement>) {
@@ -37,7 +40,7 @@ export const Target_Form: React.FC = () => {
         } else {
             dispatch(change_target_amount(+input));
             dispatch(change_user_target_amount_boolean(true));
-        }
+        } 
     }
 
     function change_currency_handler(e: React.ChangeEvent<HTMLSelectElement>) {

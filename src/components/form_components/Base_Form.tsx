@@ -8,7 +8,7 @@ import {
   change_user_target_amount_boolean,
   change_base_currency, 
   base_currency_selector 
-} from '../redux/currencies_slice';
+} from '../../redux/currencies_slice';
 import { image_assets } from '../../assets/image_assets';
 
 export const Base_Form: React.FC = () => {
@@ -26,6 +26,8 @@ export const Base_Form: React.FC = () => {
       }
     } else if(user_target_amount_boolean === true) {
       formated_base_amount = base_amount.toFixed(2);
+    } else {
+      console.log('bug found');
     }
     const base_currency = useSelector(base_currency_selector);
 

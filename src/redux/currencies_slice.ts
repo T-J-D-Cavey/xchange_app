@@ -19,7 +19,6 @@ export const get_conversions = createAsyncThunk(
         const data = await response.json();
         const firstKey = Object.keys(data.data)[0];
         const rate = data.data[firstKey];
-        console.log('Fetch request sent');
         return rate
     }
     )
