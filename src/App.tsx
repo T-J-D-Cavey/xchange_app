@@ -1,15 +1,17 @@
 import { Form_Container } from './components/Form_Container';
-// this will eventually be imported and rendered by another currency_container component that includes all the text input logic:
+import { ParticlesComponent } from './components/Particles_Componant';
 
 const App = () => {
 
   return (
-    <>
-      <Form_Container />
-    </>
+    <div className='app_container'>
+      <h1>xchange</h1>
+      <div className='form_container_wrapper'>
+        <Form_Container />
+      </div>
+      <ParticlesComponent />
+    </div >
   )
 }
-// Will want a homepage with a 'current converter' button AND others such as 'Markets' linking out
-// Will need react bootstrap form (select), and spinners for when API call is made
 
 export default App

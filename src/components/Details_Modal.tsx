@@ -21,7 +21,7 @@ export const Details_Modal: React.FC<modal_props> = (props) => {
       </Modal.Header>
       <Modal.Body>
         <p>
-          Rate Checker uses the <a href='https://freecurrencyapi.com/docs'>Free currency API</a> for daily exchange rate of the world's top currencies. 
+          Rate Checker uses the <a href='https://freecurrencyapi.com/docs' target='_blank'>Free currency API</a> for daily exchange rate of the world's top currencies. 
           <br />
           <br />
           This app is in beta. As a result we have listed the top 10 currencies only.
