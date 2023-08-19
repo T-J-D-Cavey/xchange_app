@@ -28,8 +28,8 @@ export const get_conversions = createAsyncThunk(
     const currencies_slice = createSlice({
         name: 'currencies',
         initialState: {
-            base_amount: 0,
-            target_amount: 0,
+            base_amount: '0.00',
+            target_amount: '0.00',
             user_target_amount_boolean: false,
             base_currency: 'USD',
             target_currency: 'EUR',
