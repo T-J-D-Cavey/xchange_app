@@ -12,8 +12,10 @@ import { image_assets } from '../../assets/image_assets';
 import { formProps } from '../../assets/local_types';
 
 export const Target_Form: React.FC<formProps> = (formProps) => {
+
     const dispatch = useDispatch();
     const target_amount = useSelector(target_amount_selector);
+    const formated_target_amount = target_amount.toFixed(2)
     const target_currency = useSelector(target_currency_selector); 
     
     function change_amount_handler(e: React.ChangeEvent<HTMLInputElement>) {
@@ -46,7 +48,7 @@ export const Target_Form: React.FC<formProps> = (formProps) => {
                 <Form.Label>Target currency:</Form.Label>
                 <div className='flex'>
                     <img src={image_assets[target_currency]}></img>
-                    <input type='number' value={target_amount} onChange={change_amount_handler} onFocus={focus_handler} step="0.01"/>
+                    <input type='number' value={formated_target_amount} onChange={change_amount_handler} onFocus={focus_handler} step="1"/>
                     <Form.Select id='target_currency' size="lg" onChange={change_currency_handler}>
                       <option value='EUR'>Euro (EUR)</option>
                       <option value='JPY'>Japanese yen (JPY)</option>

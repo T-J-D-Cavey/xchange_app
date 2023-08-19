@@ -33,13 +33,9 @@ export const Form_Container = () => {
 
   const calculation_call_back = useCallback(() => {
     if(user_target_amount_boolean === false) {
-      console.log('base currency for conversion: ', base_amount);
-      const converted_number = base_amount * conversion_rate;
-      dispatch(change_target_amount(converted_number.toFixed(2)));
+      dispatch(change_target_amount(base_amount * conversion_rate));
     } else {
-      console.log('target currency for conversion: ', target_amount);
-      const converted_number = target_amount / conversion_rate;
-      dispatch(change_base_amount(converted_number.toFixed(2)));
+      dispatch(change_base_amount(target_amount / conversion_rate));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user_target_amount_boolean, base_amount, target_amount])
