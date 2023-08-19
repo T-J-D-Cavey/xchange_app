@@ -10,9 +10,8 @@ import {
     target_currency_selector, 
 } from '../redux/currencies_slice';
 import { image_assets } from '../../assets/image_assets';
-import { formProps } from '../../assets/local_types';
 
-export const Target_Form: React.FC<formProps> = (formProps) => {
+export const Target_Form: React.FC = () => {
 
     const dispatch = useDispatch();
     const user_target_amount_boolean = useSelector(user_target_amount_boolean_selector);
@@ -21,7 +20,6 @@ export const Target_Form: React.FC<formProps> = (formProps) => {
     if(target_amount === 0) {
         formated_target_amount = target_amount.toFixed(0);
     } else if (target_amount > 0 && user_target_amount_boolean === true){ 
-        // add logic to remove the leading 0;
         formated_target_amount = target_amount.toString();
         if(formated_target_amount[0] === '0') {
             formated_target_amount.replace(formated_target_amount[0], '')
@@ -39,7 +37,6 @@ export const Target_Form: React.FC<formProps> = (formProps) => {
         } else {
             dispatch(change_target_amount(+input));
             dispatch(change_user_target_amount_boolean(true));
-            formProps.change_amount();
         }
     }
 
@@ -59,7 +56,7 @@ export const Target_Form: React.FC<formProps> = (formProps) => {
         <div>
             <Form.Group controlId='target_currency'>
                 <Form.Label>Target currency:</Form.Label>
-                <div className='flex'>
+                <div className='flex form_div'>
                     <img src={image_assets[target_currency]}></img>
                     <input type='number' value={formated_target_amount} onChange={change_amount_handler} onFocus={focus_handler} step='1'/>
                     <Form.Select id='target_currency' size="lg" onChange={change_currency_handler}>
@@ -69,7 +66,7 @@ export const Target_Form: React.FC<formProps> = (formProps) => {
                       <option value='AUD'>Australian dollar (AUD)</option>
                       <option value='CAD'>Canadian dollar (CAD)</option>
                       <option value='CHF'>Swiss franc (CHF)</option>
-                      <option value='CNH'>Chinese renminbi (CNH)</option>
+                      <option value='CNY'>Chinese Yuan (CNY)</option>
                       <option value='HKD'>Hong Kong dollar (HKD)</option>
                       <option value='NZD'>New Zealand dollar (NZD)</option>
                       <option value='USD'>US dollar (USD)</option>

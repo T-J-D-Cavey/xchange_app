@@ -14,7 +14,6 @@ import {
   conversion_rate_selector 
 } from './redux/currencies_slice';
 import { API_KEY, API_BASE_URL } from "../assets/api_resources";
-import { Form_Button } from './form_components/Form_Button';
 
 export const Form_Container = () => {
   const dispatch = useDispatch();
@@ -50,27 +49,12 @@ export const Form_Container = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [calculation_call_back])
 
-
-
-
-  function change_amount() {
-    // if(user_target_amount_boolean === false) {
-    //   dispatch(change_target_amount(base_amount * conversion_rate));
-    // } else {
-    //   dispatch(change_base_amount(target_amount / conversion_rate));
-    // }
-    // console.log('base currency for change_amount: ', base_amount);
-    // console.log('target currency for change_amount: ', target_amount);
-
-  }
-
     return (
         <div>
-            <Base_Form change_amount={change_amount} />
-            <Target_Form change_amount={change_amount} />
-            {/*  will ditch button if live async functionality works */}
-            <Form_Button />
+            <Base_Form />
+            <Target_Form />
             <p>1 {base_currency} = {1 * conversion_rate} {target_currency}</p>
+            {/* add in a disclaimer bootstrap modal that confirms this is only beta with top 10 currencies */}
         </div>
     )
 }

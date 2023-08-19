@@ -5,3 +5,8 @@ and the input and select take up 2/5 each */
     display: flex;
     
 }
+
+.form_div img {
+    width: 40px;
+    height: 40px;
+}

@@ -17,7 +17,6 @@ export const get_conversions = createAsyncThunk(
     async (url: string) => {
         const response = await fetch(url);
         const data = await response.json();
-        // need a way to access the specific currency string:
         const firstKey = Object.keys(data.data)[0];
         const rate = data.data[firstKey];
         console.log('Fetch request sent');
