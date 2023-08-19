@@ -4,6 +4,7 @@ import {
     target_amount_selector, 
     change_target_amount, 
     change_base_amount,
+    user_target_amount_boolean_selector,
     change_user_target_amount_boolean,
     change_target_currency, 
     target_currency_selector, 
@@ -14,8 +15,20 @@ import { formProps } from '../../assets/local_types';
 export const Target_Form: React.FC<formProps> = (formProps) => {
 
     const dispatch = useDispatch();
+    const user_target_amount_boolean = useSelector(user_target_amount_boolean_selector);
     const target_amount = useSelector(target_amount_selector);
-    const formated_target_amount = target_amount.toFixed(2)
+    let formated_target_amount;
+    if(target_amount === 0) {
+        formated_target_amount = target_amount.toFixed(0);
+    } else if (target_amount > 0 && user_target_amount_boolean === true){ 
+        // add logic to remove the leading 0;
+        formated_target_amount = target_amount.toString();
+        if(formated_target_amount[0] === '0') {
+            formated_target_amount.replace(formated_target_amount[0], '')
+          }
+    } else if (user_target_amount_boolean === false) {
+        formated_target_amount = target_amount.toFixed(2);
+      }
     const target_currency = useSelector(target_currency_selector); 
     
     function change_amount_handler(e: React.ChangeEvent<HTMLInputElement>) {
@@ -38,8 +51,8 @@ export const Target_Form: React.FC<formProps> = (formProps) => {
 
     function focus_handler(e: React.ChangeEvent<HTMLInputElement>) {
       e.preventDefault();
-      dispatch(change_base_amount(0.00));
-      dispatch(change_target_amount(0.00))
+      dispatch(change_base_amount(0));
+      dispatch(change_target_amount(0))
     }
 
     return (
@@ -48,7 +61,7 @@ export const Target_Form: React.FC<formProps> = (formProps) => {
                 <Form.Label>Target currency:</Form.Label>
                 <div className='flex'>
                     <img src={image_assets[target_currency]}></img>
-                    <input type='number' value={formated_target_amount} onChange={change_amount_handler} onFocus={focus_handler} step="1"/>
+                    <input type='number' value={formated_target_amount} onChange={change_amount_handler} onFocus={focus_handler} step='1'/>
                     <Form.Select id='target_currency' size="lg" onChange={change_currency_handler}>
                       <option value='EUR'>Euro (EUR)</option>
                       <option value='JPY'>Japanese yen (JPY)</option>
