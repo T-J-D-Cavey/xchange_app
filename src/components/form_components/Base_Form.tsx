@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { 
   base_amount_selector, 
   change_base_amount, 
+  change_target_amount,
   change_user_target_amount_boolean,
   change_base_currency, 
   base_currency_selector 
@@ -34,13 +35,19 @@ export const Base_Form: React.FC<formProps> = (formProps) => {
       dispatch(change_base_currency(input));
     }
 
+    function focus_handler(e: React.ChangeEvent<HTMLInputElement>) {
+      e.preventDefault();
+      dispatch(change_base_amount(0));
+      dispatch(change_target_amount(0))
+    }
+
     return (
       <div>
         <Form.Group controlId='currency_to_convert'>
             <Form.Label>Currency to convert:</Form.Label>
             <div className='flex'>
                 <img src={image_assets[base_currency]}></img>
-                <input type='number' value={base_amount} onChange={change_amount_handler}/>
+                <input type='number' value={base_amount} onChange={change_amount_handler} onFocus={focus_handler}/>
                 <Form.Select id='currency_to_convert' size="lg" onChange={change_currency_handler}>
                   <option value='USD'>US dollar (USD)</option>
                   <option value='JPY'>Japanese yen (JPY)</option>
