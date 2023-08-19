@@ -5,7 +5,7 @@ const App = () => {
 
   return (
     <div className='app_container'>
-      <h1>xchange</h1>
+      <h1><span className='x'>X</span>Change</h1>
       <div className='form_container_wrapper'>
         <Form_Container />
       </div>

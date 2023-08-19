@@ -16,20 +16,25 @@ export const Details_Modal: React.FC<modal_props> = (props) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Rate Checker
+          <div className='modal_title'>
+            <span className='x'>X</span>Change
+          </div>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <p>
-          Rate Checker uses the <a href='https://freecurrencyapi.com/docs' target='_blank'>Free currency API</a> for daily exchange rate of the world's top currencies. 
+          Our <span className='modal_title'><span className='x'>X</span>Change</span> app uses the <a href='https://freecurrencyapi.com/docs' target='_blank'>Free currency API</a> for daily exchange rate of the world's top currencies. 
           <br />
           <br />
           This app is in beta. As a result we have listed the top 10 currencies only.
           We hope to update this list soon to include all available currencies provided by the Free Currency API. 
+          <br />
+          <br />
+          <span className='modal_title'><span className='x'>X</span>Change</span> creator's <a href='https://github.com/T-J-D-Cavey' target='_blank'>Github page here</a>. 
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button className='button' onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );

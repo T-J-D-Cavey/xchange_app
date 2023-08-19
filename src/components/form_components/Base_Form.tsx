@@ -57,9 +57,12 @@ export const Base_Form: React.FC = () => {
     return (
       <div>
         <Form.Group controlId='currency_to_convert'>
-            <Form.Label>Currency to convert:</Form.Label>
-            <div className='flex form_div'>
-                <img src={image_assets[base_currency]}></img>
+            {/* <Form.Label>Currency to convert:</Form.Label> */}
+            <div className='form_div form_grid'>
+                <h3>Currency to convert:</h3>
+                <div className='form_img'>
+                  <img src={image_assets[base_currency]}></img>
+                </div>
                 <input type='number' value={formated_base_amount} onChange={change_amount_handler} onFocus={focus_handler} step='1'/>
                 <Form.Select id='currency_to_convert' size="lg" onChange={change_currency_handler}>
                   <option value='USD'>US dollar (USD)</option>

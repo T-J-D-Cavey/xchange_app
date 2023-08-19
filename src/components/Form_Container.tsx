@@ -59,11 +59,15 @@ export const Form_Container = () => {
         <div>
             <Base_Form />
             <Target_Form />
-            <p>1 {base_currency} = {1 * conversion_rate} {target_currency}</p>
-            <Button variant="primary" onClick={() => set_modal_show(true)}>
-              Details
+            <p id='convert_text'>1 {base_currency} = {1 * conversion_rate} {target_currency}</p>
+            <div className='flex_center'>
+            <Button 
+              className='button' 
+              variant="dark" 
+              onClick={() => set_modal_show(true)}>
+                <span className='x'>X</span>Change
             </Button>
-
+            </div>
             <Details_Modal show={modal_show} onHide={() => set_modal_show(false)} />
         </div>
     )

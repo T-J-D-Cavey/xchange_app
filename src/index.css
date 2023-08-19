@@ -1,4 +1,12 @@
-/* --------> CSS reset */
+/* --------> Variables: */
+
+:root {
+    --font-x: 'Caveat', cursive;
+    --font-header: 'Comfortaa', cursive;
+    --font-main: 'Play', sans-serif;
+}
+
+/* --------> CSS reset: */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -19,6 +27,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+    font-family: var(--font-main);
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -58,14 +67,10 @@ body {
 }
 
 .form_container_wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    height: 60vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 }
 
 .particles_container {
@@ -75,19 +80,81 @@ body {
     z-index: -1;
 }
 
+.x {
+    font-family: var(--font-x);
+    margin-right: 2.5px;
+}
+
+h1 .x {
+    margin-right: 10px;
+    font-size: 4rem;
+}
+
 h1 {
+    font-family: var(--font-header);
     font-size: 4rem;
     width: 75%;
     text-align: center;
-    margin: 10rem auto;
+    margin: 10rem auto 0 auto;
+}
+
+#convert_text {
+    font-size: 1.5rem;
+    width: 60%;
+    text-align: center;
+    margin: 1rem auto 5rem auto;
+}
+
+.button {
+    font-family: var(--font-header);
+}
+
+.modal_title {
+    font-family: var(--font-header);
+}
+/* ----------> Form grid layout: */
+.form_grid {
+    padding: 0 0.5rem;
+    display: grid;
+    grid-template-areas:
+        'top top top top top top top'
+        'left mid mid right right right right'
+    ;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(7, 1fr)
+}
+
+.form_grid h3 {
+    grid-area: top;
+    font-size: 1.5rem;
+    margin: 0.4rem 0 0.4rem 0;
+}
+
+.form_img {
+    grid-area: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_grid input {
+    grid-area: mid;
+    margin-right: 0.5rem;
+
+}
+
+#currency_to_convert, #target_currency {
+    grid-area: right;
 }
 
 
 /* we actually want to set up a grid for the form so the image takes up 1/5 of the space
 and the input and select take up 2/5 each */
-.flex {
+
+.flex_center {
     display: flex;
-    
+    justify-content: center;
+    align-items: center;
 }
 
 .form_div img {
