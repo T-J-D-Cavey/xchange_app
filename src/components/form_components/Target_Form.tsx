@@ -7,9 +7,10 @@ import {
     change_target_currency, 
     target_currency_selector, 
 } from '../redux/currencies_slice';
-import { Image_Store } from '../../assets/Image_Store';
+import { image_assets } from '../../assets/image_assets';
+import { formProps } from '../../assets/local_types';
 
-export const Target_Currency_Form = () => {
+export const Target_Form: React.FC<formProps> = (formProps) => {
     const dispatch = useDispatch();
     const target_amount = useSelector(target_amount_selector);
     const target_currency = useSelector(target_currency_selector); 
@@ -22,6 +23,7 @@ export const Target_Currency_Form = () => {
         } else {
             dispatch(change_target_amount(+input));
             dispatch(change_user_target_amount_boolean(true));
+            formProps.change_amount();
         }
     }
 
@@ -36,7 +38,7 @@ export const Target_Currency_Form = () => {
             <Form.Group controlId='target_currency'>
                 <Form.Label>Target currency:</Form.Label>
                 <div className='flex'>
-                    <img src={Image_Store[target_currency]}></img>
+                    <img src={image_assets[target_currency]}></img>
                     <input type='number' value={target_amount} onChange={change_amount_handler}/>
                     <Form.Select id='target_currency' size="lg" onChange={change_currency_handler}>
                       <option value='EUR'>Euro (EUR)</option>

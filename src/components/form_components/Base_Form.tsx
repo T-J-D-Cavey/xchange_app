@@ -7,9 +7,10 @@ import {
   change_base_currency, 
   base_currency_selector 
 } from '../redux/currencies_slice';
-import { Image_Store } from '../../assets/Image_Store';
+import { image_assets } from '../../assets/image_assets';
+import { formProps } from '../../assets/local_types';
 
-export const Currency_To_Convert_Form = () => {
+export const Base_Form: React.FC<formProps> = (formProps) => {
 
     const dispatch = useDispatch();
     const base_amount = useSelector(base_amount_selector);
@@ -21,9 +22,9 @@ export const Currency_To_Convert_Form = () => {
       if(+input < 0) {
         alert('Please enter a positive number to be converted.')
       } else {
-        console.log('this does fire');
         dispatch(change_base_amount(+input));
         dispatch(change_user_target_amount_boolean(false));
+        formProps.change_amount();
       }
     }
 
@@ -38,7 +39,7 @@ export const Currency_To_Convert_Form = () => {
         <Form.Group controlId='currency_to_convert'>
             <Form.Label>Currency to convert:</Form.Label>
             <div className='flex'>
-                <img src={Image_Store[base_currency]}></img>
+                <img src={image_assets[base_currency]}></img>
                 <input type='number' value={base_amount} onChange={change_amount_handler}/>
                 <Form.Select id='currency_to_convert' size="lg" onChange={change_currency_handler}>
                   <option value='USD'>US dollar (USD)</option>
