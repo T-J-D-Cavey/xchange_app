@@ -25,7 +25,7 @@ export const ParticlesComponent: React.FC = () => {
                 "background":{ "color":"#000" },
                 "particles": {
                   "number": {
-                    "value": 80,
+                    "value": 40,
                     "density": {
                       "enable": true,
                       "value_area": 800
@@ -38,7 +38,7 @@ export const ParticlesComponent: React.FC = () => {
                     "type": "image",
                     "stroke": {
                       "width": 0,
-                      "color": "#000000"
+                      "color": "#ffffff"
                     },
                     "polygon": {
                       "nb_sides": 6
@@ -72,9 +72,9 @@ export const ParticlesComponent: React.FC = () => {
                   "line_linked": {
                     "enable": true,
                     "distance": 150,
-                    "color": "#000000",
-                    "opacity": 0.2,
-                    "width": 1
+                    "color": "#1a652a",
+                    "opacity": 1,
+                    "width": 2
                   },
                   "move": {
                     "enable": true,
@@ -85,18 +85,18 @@ export const ParticlesComponent: React.FC = () => {
                     "out_mode": "out",
                     "bounce": false,
                     "attract": {
-                      "enable": false,
+                      "enable": true,
                       "rotateX": 600,
                       "rotateY": 1200
                     }
                   }
                 },
                 "interactivity": {
-                  "detect_on": "canvas",
+                  "detect_on": "window",
                   "events": {
                     "onhover": {
                       "enable": true,
-                      "mode": "attract"
+                      "mode": "grab"
                     },
                     "onclick": {
                       "enable": true,

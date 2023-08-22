@@ -4,7 +4,7 @@ import { ParticlesComponent } from './components/Particles_Componant';
 const App = () => {
 
   return (
-    <div className='app_container'>
+    <div>
       <h1><span className='x'>X</span>Change</h1>
       <div className='form_container_wrapper'>
         <Form_Container />
