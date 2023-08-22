@@ -63,9 +63,9 @@ export const Form_Container = () => {
             <div className='flex_center'>
             <Button 
               className='button' 
-              variant="dark" 
+              variant="light" 
               onClick={() => set_modal_show(true)}>
-                <span className='x'>X</span>Change
+                <span className='x main_button_x'>X</span>Change
             </Button>
             </div>
             <Details_Modal show={modal_show} onHide={() => set_modal_show(false)} />

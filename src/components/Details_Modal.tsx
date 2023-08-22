@@ -13,12 +13,13 @@ export const Details_Modal: React.FC<modal_props> = (props) => {
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      className='modal_text'
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <div className='modal_title'>
+          <h3 className='modal_title'>
             <span className='x'>X</span>Change
-          </div>
+          </h3>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -34,7 +35,7 @@ export const Details_Modal: React.FC<modal_props> = (props) => {
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button className='button' onClick={props.onHide}>Close</Button>
+        <Button className='button modal_button' variant="dark" onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );

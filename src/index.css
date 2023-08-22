@@ -63,8 +63,11 @@ body {
 .form_container_wrapper {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .x {
@@ -95,8 +98,21 @@ h1 {
     font-family: var(--font-header);
 }
 
+.main_button_x {
+    color: #343231;
+}
+
+.modal_button {
+
+}
+
 .modal_title {
     font-family: var(--font-header);
+}
+
+.modal_text h3, .modal_text p, .modal_text span, .modal_text a {
+    /* Set this as a variable */
+    color: #343231;
 }
 /* ----------> Form grid layout: */
 .form_grid {
@@ -146,8 +162,9 @@ h1 {
 }
 
 @media screen and (min-width: 800px) {
-    h1 {
+    h1, h1 .x {
         margin-top: 10rem;
+        font-size: 6rem;
     }
 }
 
