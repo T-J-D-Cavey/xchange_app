@@ -31,7 +31,7 @@ export const Details_Modal: React.FC<modal_props> = (props) => {
           We hope to update this list soon to include all available currencies provided by the Free Currency API. 
           <br />
           <br />
-          <span className='modal_title'><span className='x'>X</span>Change</span> creator's <a href='https://github.com/T-J-D-Cavey' target='_blank'>Github page here</a>. 
+          <span className='modal_title'><span className='x'>X</span>Change</span> creator's <a href='https://github.com/T-J-D-Cavey' target='_blank'>Github page here</a>. The creator does not hold any copyright claims to the name, and this app is governed by the terms of the MIT license. 
         </p>
       </Modal.Body>
       <Modal.Footer>
