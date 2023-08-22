@@ -1,16 +1,17 @@
 import Particles from 'react-tsparticles'
 import {loadFull} from 'tsparticles'
+import type { Container, Engine } from "tsparticles-engine";
 import {useCallback} from 'react'
 import dollar_bill from '../assets/dollar_bill.png'
 
 export const ParticlesComponent: React.FC = () => {
 
-    const particlesLoaded = useCallback(async container => {
-      const returnedContainer = await container;
+    const particlesInit = useCallback(async (engine: Engine) => {
+      await loadFull(engine)
     }, []);
 
-    const particlesInit = useCallback(async engine => {
-        await loadFull(engine)
+    const particlesLoaded = useCallback(async (container: Container | undefined) => {
+      await console.log(container);
     }, []);
 
     return (
@@ -136,11 +137,4 @@ export const ParticlesComponent: React.FC = () => {
         </div>
     )
 }
-
-{/* <Particles
-id="tsparticles"
-init={particlesInit}
-loaded={particlesLoaded}
-options={{ "fullScreen": { "enable": true, "zIndex": -1}, "background":{ "color":"#85BB65" }, "particles":{ "number":{ "value":100, "density":{ "enable":true, "value_area":600 } }, "color":{ "value":"#1a652a" }, "shape": { "type": "square", "stroke":{ "width":0, "color":"#000000" }, "polygon":{ "nb_sides":5 } }, "opacity":{ "value":0.8, "random":true, "anim":{ "enable":false, "speed":4, "opacity_min":0.1, "sync":false } }, "size":{ "value":10, "random":true, "anim":{ "enable":false, "speed":4, "size_min":0.1, "sync":false } }, "line_linked":{ "enable":false, "distance":300, "color":"#ffffff", "opacity":0, "width":0 }, "move":{ "enable":true, "speed":2, "direction":"right", "straight":true, "out_mode":"out", "bounce":false, "attract":{ "enable":false, "rotateX":600, "rotateY":1200 } } }, "interactivity":{ "detect_on":"canvas", "events":{ "onhover":{ "enable":true, "mode":"attract" }, "onclick":{ "enable":true, "mode":"repulse" }, "resize":true }, "modes":{ "grab":{ "distance":800, "line_linked":{ "opacity":1 } }, "bubble":{ "distance":790, "size":79, "duration":2, "opacity":0.8, "speed":3 }, "repulse":{ "distance":400, "duration":0.4 }, "push":{ "particles_nb":4 }, "remove":{ "particles_nb":2 } } }, "retina_detect":true}}
-/> */}
 

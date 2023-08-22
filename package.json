@@ -1,7 +1,7 @@
 {
-  "name": "waste_not_want_not",
-  "private": true,
-  "version": "0.0.0",
+  "name": "xchange_app",
+  "private": false,
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

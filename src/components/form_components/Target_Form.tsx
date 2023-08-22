@@ -58,7 +58,6 @@ export const Target_Form: React.FC = () => {
     return (
         <div>
             <Form.Group controlId='target_currency'>
-                {/* <Form.Label>Target currency:</Form.Label> */}
                 <div className='form_div form_grid'>
                     <h3>Target currency:</h3>
                     <div className='form_img'>

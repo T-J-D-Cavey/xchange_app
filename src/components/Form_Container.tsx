@@ -16,7 +16,6 @@ import {
 import { API_KEY, API_BASE_URL } from "../assets/api_resources";
 import { Details_Modal } from './Details_Modal';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
 export const Form_Container = () => {
   const [modal_show, set_modal_show] = useState(false);
@@ -30,9 +29,7 @@ export const Form_Container = () => {
   const conversion_rate = useSelector(conversion_rate_selector);
 
   const conversion_call_back = useCallback(() => {// eslint-disable-next-line @typescript-eslint/no-explicit-any
-    // dispatch(get_conversions(`${API_BASE_URL}apikey=${API_KEY}&base_currency=${base_currency}&currencies=${target_currency}`) as any);
-    console.log('pretend fetch here')
-    // calculation_call_back();
+    dispatch(get_conversions(`${API_BASE_URL}apikey=${API_KEY}&base_currency=${base_currency}&currencies=${target_currency}`) as any);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [base_currency, target_currency])
 

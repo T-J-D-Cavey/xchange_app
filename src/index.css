@@ -4,6 +4,8 @@
     --font-x: 'Caveat', cursive;
     --font-header: 'Comfortaa', cursive;
     --font-main: 'Play', sans-serif;
+    --font-light: #fffff2;
+    --font-dark: #343231;
 }
 
 /* --------> CSS reset: */
@@ -28,10 +30,9 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
     font-family: var(--font-main);
-    /* should make this a variabel and just add it directly: */
-    color: #fffff2;
+    color: var(--font-light)
 }
-/* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -55,7 +56,8 @@ table {
 	border-spacing: 0;
 }
 
-/* ----------> tbc */
+/* ----------> Currency page styles: */
+
 body {
     width: 100%;
 }
@@ -99,11 +101,7 @@ h1 {
 }
 
 .main_button_x {
-    color: #343231;
-}
-
-.modal_button {
-
+    color: var(--font-dark);
 }
 
 .modal_title {
@@ -111,10 +109,11 @@ h1 {
 }
 
 .modal_text h3, .modal_text p, .modal_text span, .modal_text a {
-    /* Set this as a variable */
-    color: #343231;
+    color: var(--font-dark);
 }
+
 /* ----------> Form grid layout: */
+
 .form_grid {
     z-index: 1;
     padding: 0 0.5rem;
@@ -196,5 +195,4 @@ h1 {
     .form_grid h3, #convert_text {
         font-size: 1rem;
     }
-
 }
