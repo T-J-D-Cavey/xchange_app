@@ -28,8 +28,8 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
     font-family: var(--font-main);
-    /* Need to think about editing this and making sure all styles are correct colour */
-    color: #fff;
+    /* should make this a variabel and just add it directly: */
+    color: #fffff2;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
