@@ -101,7 +101,7 @@ export const ParticlesComponent: React.FC = () => {
                     },
                     "onclick": {
                       "enable": true,
-                      "mode": "push"
+                      "mode": "repulse"
                     },
                     "resize": true
                   },
@@ -120,7 +120,7 @@ export const ParticlesComponent: React.FC = () => {
                       "speed": 3
                     },
                     "repulse": {
-                      "distance": 200,
+                      "distance": 600,
                       "duration": 0.4
                     },
                     "push": {
