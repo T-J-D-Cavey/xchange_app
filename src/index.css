@@ -67,6 +67,7 @@ table {
     transform: translate(-50%, -25%);
     width: 100%;
     max-width: 800px;
+    min-width: 250px;
     margin: 0 auto;
 }
 
@@ -121,7 +122,8 @@ h1 {
         'left mid mid right right right right'
     ;
     grid-template-rows: auto;
-    grid-template-columns: repeat(7, 1fr)
+    grid-template-columns: repeat(7, 1fr);
+    min-width: 250px;
 }
 
 .form_grid h3 {
