@@ -57,7 +57,6 @@ export const Base_Form: React.FC = () => {
     return (
       <div>
         <Form.Group controlId='currency_to_convert'>
-            {/* <Form.Label>Currency to convert:</Form.Label> */}
             <div className='form_div form_grid'>
                 <h3>Currency to convert:</h3>
                 <div className='form_img'>
@@ -74,6 +73,7 @@ export const Base_Form: React.FC = () => {
                   <option value='CNY'>Chinese Yuan (CNY)</option>
                   <option value='HKD'>Hong Kong dollar (HKD)</option>
                   <option value='NZD'>New Zealand dollar (NZD)</option>
+                  <option value='MYR'>Malaysian Ringgit</option>
                   <option value='EUR'>Euro (EUR)</option>
                 </Form.Select>
             </div>

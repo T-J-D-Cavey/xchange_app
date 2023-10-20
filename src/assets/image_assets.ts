@@ -8,6 +8,7 @@ import GBP from './gbp.png';
 import HKD from './hkd.png';
 import JPY from './jpy.png';
 import NZD from './nzd.png';
+import MYR from './myr.png'
 
 export const image_assets: Record<string, string> = {
     'USD': USD,
@@ -19,5 +20,6 @@ export const image_assets: Record<string, string> = {
     'HKD': HKD,
     'JPY': JPY,
     'NZD': NZD,
-    'AUD': AUD
+    'AUD': AUD,
+    'MYR': MYR
 }
