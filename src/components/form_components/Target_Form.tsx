@@ -74,7 +74,7 @@ export const Target_Form: React.FC = () => {
                       <option value='CNY'>Chinese Yuan (CNY)</option>
                       <option value='HKD'>Hong Kong dollar (HKD)</option>
                       <option value='NZD'>New Zealand dollar (NZD)</option>
-                      <option value='MYR'>Malaysian Ringgit</option>
+                      <option value='MYR'>Malaysian Ringgit (MYR)</option>
                       <option value='USD'>US dollar (USD)</option>
                     </Form.Select>
                 </div>
